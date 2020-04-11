@@ -141,39 +141,46 @@ export class TransferList extends React.Component {
     let leftChecked = this.leftChecked();
     let rightChecked = this.rightChecked();
     return (
-      <Row className="justify-content-md-center align-items-center">
-        <Col lg="3">{this.customList("Choices", this.state.left)}</Col>
-        <Col lg="1">
-          <Row className="flex-column align-items-center">
-            <Button
-              style={{ minWidth: "64px" }}
-              className="mb-1"
-              variant="outline-secondary"
-              size="sm"
-              onClick={() => {
-                this.handleCheckedRight();
-              }}
-              disabled={leftChecked.length === 0}
-              aria-label="move selected right"
-            >
-              &gt;
-            </Button>
-            <Button
-              style={{ minWidth: "64px" }}
-              variant="outline-secondary"
-              size="sm"
-              onClick={() => {
-                this.handleCheckedLeft();
-              }}
-              disabled={rightChecked.length === 0}
-              aria-label="move selected left"
-            >
-              &lt;
-            </Button>
-          </Row>
-        </Col>
-        <Col lg="3">{this.customList("Chosen", this.state.right)}</Col>
-      </Row>
+      <React.Fragment>
+        <Row className="justify-content-md-center align-items-center">
+          <Col lg="3">
+            <h4>Transfer List</h4>
+          </Col>
+        </Row>
+        <Row className="justify-content-md-center align-items-center">
+          <Col lg="3">{this.customList("Choices", this.state.left)}</Col>
+          <Col lg="1">
+            <Row className="flex-column align-items-center">
+              <Button
+                style={{ minWidth: "64px" }}
+                className="mb-1"
+                variant="outline-secondary"
+                size="sm"
+                onClick={() => {
+                  this.handleCheckedRight();
+                }}
+                disabled={leftChecked.length === 0}
+                aria-label="move selected right"
+              >
+                &gt;
+              </Button>
+              <Button
+                style={{ minWidth: "64px" }}
+                variant="outline-secondary"
+                size="sm"
+                onClick={() => {
+                  this.handleCheckedLeft();
+                }}
+                disabled={rightChecked.length === 0}
+                aria-label="move selected left"
+              >
+                &lt;
+              </Button>
+            </Row>
+          </Col>
+          <Col lg="3">{this.customList("Chosen", this.state.right)}</Col>
+        </Row>
+      </React.Fragment>
     );
   }
 }
